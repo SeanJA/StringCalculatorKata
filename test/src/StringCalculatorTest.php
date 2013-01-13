@@ -44,7 +44,13 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
     public function testTwoNumbersCustomDelimiter(){
         $this->assertEquals(2, $this->object->add("//3\n131"));
     }
-
+    
+    /**
+     * @expectedException StringCalculatorNegativeNumberException
+     */
+    public function testNegativeThrowsException(){
+        $this->object->add('-2');
+    }
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
