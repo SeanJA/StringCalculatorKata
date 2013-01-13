@@ -57,7 +57,7 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
             $this->object->add('-2,-3,-4');
             $this->fail('Expected StringCalculatorNegativeNumberException');
         } catch (StringCalculatorNegativeNumberException $e){
-            $this->assertEquals('-2,-3,-4', $e->getMessage());
+            $this->assertEquals('negatives not allowed -2,-3,-4', $e->getMessage());
         }
     }
     

@@ -18,7 +18,7 @@ class StringCalculator{
             }
         }
         if(!empty($negatives)){
-            throw new StringCalculatorNegativeNumberException(implode(',', $negatives));
+            throw new StringCalculatorNegativeNumberException('negatives not allowed ' . implode(',', $negatives));
         }
         $total = array_sum($string);
         return $total;
