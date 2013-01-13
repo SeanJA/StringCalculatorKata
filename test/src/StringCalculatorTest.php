@@ -61,6 +61,10 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
         }
     }
     
+    public function testNumbersBiggerThan1000ShouldBeIgnored(){
+        $this->assertEquals(3,$this->object->add('1002,1'));
+    }
+    
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
