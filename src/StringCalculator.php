@@ -3,13 +3,11 @@
 class StringCalculator{
     function add($string){
         $matches = array();
-        if(preg_match("/^\/\/(.*)\\n/", $string, $matches)){
+        if(preg_match("/^\/\/\[?(.*?)\]?\\n/", $string, $matches)){
             $delimiter = $matches[1];
             $count = 1;
             $string = str_replace($matches[0], '', $string, $count);
             if(strpos($delimiter, '][') !== false){
-                $delimiter = preg_replace('/^\[/', '', $delimiter);
-                $delimiter = preg_replace('/\]$/', '', $delimiter);
                 $delimiter = explode('][', $delimiter);
                 $array = preg_split("/[".implode('|', $delimiter)."]/", $string);
             } else {
