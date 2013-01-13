@@ -2,6 +2,14 @@
 
 class StringCalculator{
     function add($string){
+        $array = $this->buildNumberArray($string);
+        $array = $this->checkForNumbersGreaterThan1000($array);
+        $this->checkForNegatives($array);
+        $total = array_sum($array);
+        return $total;
+    }
+    
+    private function buildNumberArray($string){
         $matches = array();
         if(preg_match("/^\/\/\[?(.*?)\]?\\n/", $string, $matches)){
             $delimiter = $matches[1];
@@ -9,6 +17,7 @@ class StringCalculator{
             $string = str_replace($matches[0], '', $string, $count);
             if(strpos($delimiter, '][') !== false){
                 $delimiter = explode('][', $delimiter);
+                array_walk($delimiter, 'preg_quote');
                 $array = preg_split("/[".implode('|', $delimiter)."]/", $string);
             } else {
                 $array = explode($delimiter, $string);
@@ -16,10 +25,7 @@ class StringCalculator{
         } else {
             $array = preg_split("/[,|\n]/", $string);
         }
-        $array = $this->checkForNumbersGreaterThan1000($array);
-        $this->checkForNegatives($array);
-        $total = array_sum($array);
-        return $total;
+        return $array;
     }
     
     private function checkForNumbersGreaterThan1000($array){
