@@ -62,7 +62,7 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
     }
     
     public function testNumbersBiggerThan1000ShouldBeIgnored(){
-        $this->assertEquals(3,$this->object->add('1002,1'));
+        $this->assertEquals(1,$this->object->add('1002,1'));
     }
     
     /**
