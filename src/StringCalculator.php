@@ -11,7 +11,14 @@ class StringCalculator{
         } else {
             $string = preg_split("/[,|\n]/", $string);
         }
+        foreach($string as $s){
+            if($s < 0){
+                throw new StringCalculatorNegativeNumberException($s);
+            }
+        }
         $total = array_sum($string);
         return $total;
     }
 }
+
+class StringCalculatorNegativeNumberException extends Exception{}
