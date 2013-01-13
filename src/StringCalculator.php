@@ -11,9 +11,19 @@ class StringCalculator{
         } else {
             $array = preg_split("/[,|\n]/", $string);
         }
+        $array = $this->checkForNumbersGreaterThan1000($array);
         $this->checkForNegatives($array);
         $total = array_sum($array);
         return $total;
+    }
+    
+    private function checkForNumbersGreaterThan1000($array){
+        foreach($array as &$a){
+            if($a > 1000){
+                $a = 0;
+            }
+        }
+        return $array;
     }
     
     private function checkForNegatives($array){
