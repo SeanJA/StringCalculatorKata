@@ -51,6 +51,16 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
     public function testNegativeThrowsException(){
         $this->object->add('-2');
     }
+    
+    public function testMultipleNegativeThrowsException(){
+        try{
+            $this->object->add('-2,-3,-4');
+            $this->fail('Expected StringCalculatorNegativeNumberException');
+        } catch (StringCalculatorNegativeNumberException $e){
+            $this->assertEquals('-2,-3,-4', $e->getMessage());
+        }
+    }
+    
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
