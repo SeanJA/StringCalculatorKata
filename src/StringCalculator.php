@@ -1,7 +1,7 @@
 <?php
 
 class StringCalculator{
-    function add(){
-        return 0;
+    function add($string){
+        return ($string === "")? 0:(int)$string;
     }
 }
