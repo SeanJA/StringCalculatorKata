@@ -69,6 +69,14 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(6, $this->object->add("//[*][%]\n1*2%3"));
     }
     
+    public function testAllowCustomLongDelimiters(){
+        $this->assertEquals(6, $this->object->add("//*%\n1*%2*%3"));
+    }
+    
+    public function testAllowMultipleCustomLongDelimiters(){
+        $this->assertEquals(6, $this->object->add("//[*%][*?|]\n1*%2*?|3"));
+    }
+    
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
