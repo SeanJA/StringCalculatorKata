@@ -42,7 +42,7 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
     }
     
     public function testTwoNumbersCustomDelimiter(){
-        $this->assertEquals(5, $this->object->add("//3131"));
+        $this->assertEquals(5, $this->object->add("//3\n131"));
     }
 
     /**
