@@ -2,6 +2,8 @@
 
 class StringCalculator{
     function add($string){
-        return ($string === "")? 0:(int)$string;
+        $string = explode(',', $string);
+        $total = array_sum($string);
+        return $total;
     }
 }
