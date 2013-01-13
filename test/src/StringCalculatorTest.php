@@ -40,6 +40,10 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
     public function testTwoNumbersSeparatedByNewLinesOrCommas(){
         $this->assertEquals(5, $this->object->add("1\n1,3"));
     }
+    
+    public function testTwoNumbersCustomDelimiter(){
+        $this->assertEquals(5, $this->object->add("//3131"));
+    }
 
     /**
      * Tears down the fixture, for example, closes a network connection.
