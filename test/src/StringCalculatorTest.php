@@ -28,6 +28,10 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
     public function test1WillReturn1(){
         $this->assertEquals(1, $this->object->add("1"));
     }
+    
+    public function testTwoNumbersWithCommaSeparator(){
+        $this->assertEquals(2, $this->object->add("1,1"));
+    }
 
     /**
      * Tears down the fixture, for example, closes a network connection.
