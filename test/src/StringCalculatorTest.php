@@ -20,6 +20,10 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
     protected function setUp() {
         $this->object = new StringCalculator;
     }
+    
+    public function testEmptyStringWillReturn0(){
+        $this->assertEquals(0, $this->object->add(""));
+    }
 
     /**
      * Tears down the fixture, for example, closes a network connection.
