@@ -24,6 +24,10 @@ class StringCalculatorTest extends PHPUnit_Framework_TestCase {
     public function testEmptyStringWillReturn0(){
         $this->assertEquals(0, $this->object->add(""));
     }
+    
+    public function test1WillReturn1(){
+        $this->assertEquals(1, $this->object->add("1"));
+    }
 
     /**
      * Tears down the fixture, for example, closes a network connection.
